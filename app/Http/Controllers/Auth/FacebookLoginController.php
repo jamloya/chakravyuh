@@ -41,7 +41,6 @@ class FacebookLoginController extends Controller
         );
     
         Auth::login($user, true);
-        
-        return redirect()->to('/home');
+        return redirect('/home');
     }
 }

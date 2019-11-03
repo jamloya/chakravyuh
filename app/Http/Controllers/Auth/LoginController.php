@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use Socialite;
 use App\Http\Controllers\Controller;
+use Auth;
+use App\User;
 use GuzzleHttp\Exception\RequestException;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
@@ -28,6 +30,13 @@ class LoginController extends Controller
      *
      * @var string
      */
+
+     public function logout()
+     {
+         Auth::logout();
+         return redirect('/');
+     }
+
     protected $redirectTo = '/home';
 
 
@@ -40,4 +49,6 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+   
+    
 }
